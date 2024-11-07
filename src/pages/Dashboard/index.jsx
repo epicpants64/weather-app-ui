@@ -11,9 +11,10 @@ import { useDestination, errorSettingLocation, setLocation } from '../../context
 import { useAllForecastInfoQuery } from '../../cache/useAllForecastInfoQuery'
 import { useCurrentLocationInfoQuery } from '../../cache/useCurrentLocationInfoQuery'
 import { CenterItemsContainer, CenterItemsSubContainer } from '../styles'
+import { ForecastPageContainer } from './styles'
 
 export const Dashboard = () => {
-  const { dispatch, settingDestination, setIsValidZipCode, selectedDestination, zipCode } = useDestination()
+  const { dispatch, settingDestination, setIsValidZipCode, selectedDestination, zipCode, setZipCode } = useDestination()
   const [shouldQueryLocation, setShouldQueryLocation] = useState(false)
   const [shouldQuery, setShouldQuery] = useState(false)
   const navigate = useNavigate()
@@ -23,12 +24,13 @@ export const Dashboard = () => {
   })
   const { data: locationData, error: locationError } = useCurrentLocationInfoQuery({ zipCode, shouldQuery: shouldQueryLocation })
 
-  // these 2 use effects are the same as in landing page should be able to centralize would also fix the double error throw
+  // these 2 use effects are the same as in landing page should be able to centralize
   useEffect(() => {
     if (locationError) {
       setIsValidZipCode(false)
       setShouldQueryLocation(false)
       errorSettingLocation({ dispatch })
+      setZipCode('')
       navigate('/')
     }
   }, [locationError])
@@ -61,7 +63,9 @@ export const Dashboard = () => {
         </CenterItemsContainer>
       ) : (
         <div>
-          <ZipCodeInput />
+          <ForecastPageContainer>
+            <ZipCodeInput />
+          </ForecastPageContainer>
           <CurrentForecast shouldQuery={shouldQuery} />
           <HourlyList shouldQuery={shouldQuery} />
           <WeekList shouldQuery={shouldQuery} />

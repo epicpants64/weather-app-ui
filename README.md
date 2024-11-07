@@ -2,6 +2,10 @@
 
 UI (front end) for Weather App
 
+## Back End Repository
+
+[weather-app-api](https://github.com/epicpants64/weather-app-api)
+
 ## How to run with backend end
 
 1. clone both repositories down (make sure they are in the same parent folder)

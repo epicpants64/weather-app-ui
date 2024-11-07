@@ -10,7 +10,7 @@ import { CenterItemsContainer, CenterItemsSubContainer } from './styles'
 
 export const LandingPage = () => {
   const [shouldQueryLocation, setShouldQueryLocation] = useState(false)
-  const { dispatch, settingDestination, selectedDestination, zipCode, setIsValidZipCode } = useDestination()
+  const { dispatch, settingDestination, selectedDestination, zipCode, setZipCode, setIsValidZipCode } = useDestination()
   const { data, isError } = useCurrentLocationInfoQuery({ zipCode, shouldQuery: shouldQueryLocation })
   const navigate = useNavigate()
 
@@ -19,6 +19,7 @@ export const LandingPage = () => {
       setIsValidZipCode(false)
       setShouldQueryLocation(false)
       errorSettingLocation({ dispatch })
+      setZipCode('')
       navigate('/')
     }
   }, [isError])

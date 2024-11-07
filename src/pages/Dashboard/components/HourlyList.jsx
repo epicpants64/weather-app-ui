@@ -1,6 +1,7 @@
 import { useDestination } from '../../../context/destinationContext'
 import { useAllForecastInfoQuery } from '../../../cache/useAllForecastInfoQuery'
-import { ForecastPageContainer, HourlyListContainer, HourlyItemContainer, HourlyStack } from './styles'
+import { HourlyListContainer, HourlyItemContainer, HourlyStack } from './styles'
+import { ForecastPageContainer } from '../styles'
 import { WeatherInfo } from './WeatherInfo'
 
 export const HourlyList = ({ shouldQuery }) => {

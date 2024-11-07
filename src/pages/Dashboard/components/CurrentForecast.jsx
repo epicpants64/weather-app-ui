@@ -1,5 +1,5 @@
 import { useDestination } from '../../../context/destinationContext'
-import { ForecastPageContainer } from './styles'
+import { ForecastPageContainer } from '../styles'
 import { WeatherInfo } from './WeatherInfo'
 import { useAllForecastInfoQuery } from '../../../cache/useAllForecastInfoQuery'
 

@@ -1,17 +1,6 @@
 import styled from 'styled-components'
 import { Card, Stack, ListItemText } from '@mui/material'
 
-// common styles
-export const ForecastPageContainer = styled.div`
-  position: relative;
-  margin: 0 auto;
-  clear: left;
-  height: auto;
-  z-index: 0;
-  text-align: center;
-  margin-top: 50px;
-`
-
 // hourly styles
 export const HourlyListContainer = styled(Card)`
   width: 75%;

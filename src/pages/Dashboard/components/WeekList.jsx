@@ -2,7 +2,8 @@ import { Typography, List, ListItemAvatar, ListItem, Avatar, ListItemText, Divid
 
 import { useDestination } from '../../../context/destinationContext'
 import { useAllForecastInfoQuery } from '../../../cache/useAllForecastInfoQuery'
-import { ForecastPageContainer, WeeklyListContainer, RightSideListItemText } from './styles'
+import { WeeklyListContainer, RightSideListItemText } from './styles'
+import { ForecastPageContainer } from '../styles'
 
 export const WeekList = ({ shouldQuery }) => {
   const { selectedDestination } = useDestination()
